@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+
+    <!-- checkout cart index index summary item image url with CDN -->
+    <preference for="Magento\Checkout\Model\Cart\ImageProvider" type="MDC\Checkout\Model\Cart\ImageProvider" />    
+    <preference for="Magento\Checkout\CustomerData\DefaultItem" type="MDC\Checkout\Preference\DefaultItem"/>
+    <type name="Magento\Checkout\CustomerData\DefaultItem">
+        <plugin name="AddAttPlug" type="MDC\Checkout\Plugin\DefaultItem" />
+	</type>
+
+   <preference for="Magento\Checkout\Controller\Cart\UpdatePost" type="MDC\Checkout\Preference\UpdatePost" />
+    <type name="\Magento\Checkout\Controller\Cart\Delete">
+        <plugin name="DeleteCartItem" type="MDC\Checkout\Plugin\Delete" />
+	</type>
+    <preference for="Magento\Checkout\Controller\Cart\Add" type="MDC\Checkout\Controller\Cart\Add" />
+    <type name="Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend">
+        <plugin disabled="false" name="Plugin_Remove_Checkout_LnameFname_Validation" type="MDC\Checkout\Plugin\AbstractBackend"/>
+    </type>
+    <preference for="Magento\Quote\Model\Quote" type="MDC\Checkout\Model\Quote"/>
+
+</config>

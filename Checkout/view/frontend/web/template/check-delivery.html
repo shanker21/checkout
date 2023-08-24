@@ -1,0 +1,26 @@
+<!--Use 'stepCode' as id attribute-->
+<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+<div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+    <div id="checkout-step-title"
+         class="step-content"
+         data-role="content">
+         <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
+            <div id="checout-delivery-step" class="checout-delivery-step">
+                <table id="table-checkout-delivery" class="table-checkout-delivery">
+                </table>
+            </div>
+           <!-- <div class="actions-toolbar" id="shipping-method-buttons-container">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span data-bind="i18n: 'Next'">Next</span>
+                    </button>
+                </div>
+            </div>-->
+            <!-- ko if: errorValidationMessage().length -->
+            <!--<div role="alert" class="message notice" display:none;>
+                <span data-bind="text: errorValidationMessage()"></span>
+            </div>-->
+            <!-- /ko -->
+        </form>
+    </div>
+</li>
